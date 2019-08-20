@@ -20,7 +20,7 @@
         $dbh = null;
 
         print 'スタッフ一覧<br /><br />';
-        print '<form method="post" action="staff_edit.php">';
+        print '<form method="post" action="staff_branch.php">';
 
         while (true) {
             $rec = $stmt -> fetch(PDO::FETCH_ASSOC);
@@ -31,7 +31,8 @@
                 print $rec['name'].'<br />';
             }
         }
-        print '<input type="submit" value="修正">';
+        print '<input type="submit" name="edit" value="修正">';
+        print '<input type="submit" name="delete" value="削除">';
         print '</form>';
     }
     catch (Exception $e) {
