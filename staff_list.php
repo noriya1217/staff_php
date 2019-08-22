@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    session_regenerate_id(true);
+    if (isset($_SESSION['login']) == false) {
+        echo 'ログインされていません<br>';
+        print '<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+        exit();
+    } else {
+        echo $_SESSION['staff_name'].'さんログイン中<br><br>';
+    }
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,6 +43,9 @@
                 print $rec['name'].'<br />';
             }
         }
+        
+        print '<input type="submit" name="add" value="追加">';
+        print '<input type="submit" name="disp" value="参照">';
         print '<input type="submit" name="edit" value="修正">';
         print '<input type="submit" name="delete" value="削除">';
         print '</form>';
@@ -40,5 +55,8 @@
         exit();
     }
     ?>
+
+    <br><br>
+    <a href='../staff_login/staff_top.php'>トップメニューに戻る</a><br>
   </body>
 </html>
